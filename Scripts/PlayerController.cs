@@ -34,10 +34,11 @@ public class PlayerController : MonoBehaviour
         //Movimentar o player com os input vertical (w e s) ou as setas.
         movementPlayer.y = Input.GetAxisRaw("Vertical");
 
-       //Animação  
+       //Ativar animação para seu deslocamento. 
         animator.SetFloat("Horizontal", movementPlayer.x);
         animator.SetFloat("Vertical", movementPlayer.y);
-        //
+        
+        //Ativar sua animação...
         animator.SetFloat("Speed", movementPlayer.sqrMagnitude);
     }
 
