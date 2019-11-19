@@ -4,11 +4,10 @@ using UnityEngine;
 //Data: 02/10
 
 public class CompleteCameraController : MonoBehaviour
-{
-    public GameObject player;       //Variável pública para armazenar uma referência ao GameObject do player
+{//Variável pública para armazenar uma referência ao GameObject do player
 
-
-    private Vector3 offset;         //Variável privada para armazenar a distância de deslocamento entre o player e a câmera
+    //Variável privada para armazenar a distância de deslocamento entre o player e a câmera.
+    private Vector3 offset;        
 
 
     void Start()
