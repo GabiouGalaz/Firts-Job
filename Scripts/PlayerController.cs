@@ -6,15 +6,17 @@ using UnityEngine;
 //Descrição: Para fazer o personagem se locomover.
 public class PlayerController : MonoBehaviour
 {
-
-    public float moveSpeed = 5f; 
+   //Aplica a velocidade de deslocamento do personagem,
+   //no painel Inspector da Unity pode ser modificado.
+   public float moveSpeed = 5f; 
 
     //Jogador com o rigidbody2D  
     public Rigidbody2D player2D;
 
     //Para colocar as animações
     public Animator animator;
-
+    
+    // Usando o vector2 para mexer somente nos eixos x e y.
     Vector2 movementPlayer;
 
     void Start()
@@ -26,22 +28,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
+        //Movimentar o player com os input horizontal (a e d) ou as setas.
         movementPlayer.x = Input.GetAxisRaw("Horizontal");
+        
+        //Movimentar o player com os input vertical (w e s) ou as setas.
         movementPlayer.y = Input.GetAxisRaw("Vertical");
 
+       //Animação  
         animator.SetFloat("Horizontal", movementPlayer.x);
         animator.SetFloat("Vertical", movementPlayer.y);
+        //
         animator.SetFloat("Speed", movementPlayer.sqrMagnitude);
     }
 
     //
     void FixedUpdate()
     {
-
-        player2D.MovePosition(player2D.position + movementPlayer * moveSpeed * Time.fixedDeltaTime);
-
-
-       
+       //Movimentando o player aplicando a velocidade em seu deslocamento.
+        player2D.MovePosition(player2D.position + movementPlayer * moveSpeed * Time.fixedDeltaTime)
+      
     }
-}
+}w55t
